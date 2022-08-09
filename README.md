@@ -1,34 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### 前置准备
 
-## Getting Started
+- eslint
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```json
+{
+  "extends": ["next/core-web-vitals", "eslint:recommended"]
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- stylelint
+  > yarn add stylelint stylelint-config-standard-scss -D
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```json
+{
+  "extends": "stylelint-config-standard-scss"
+}
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+> vscode 配置：{ "editor.codeActionsOnSave": { "source.fixAll.stylelint": true } }， 样式自动格式化
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- prettier
 
-## Learn More
+```json
+{
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "htmlWhitespaceSensitivity": "css",
+  "insertPragma": false,
+  "jsxBracketSameLine": false,
+  "jsxSingleQuote": false,
+  "printWidth": 80,
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
+  "requirePragma": false,
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": false,
+  "vueIndentScriptAndStyle": false,
+  "parser": "babel"
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### mock数据
+> yarn add mockjs -D
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### 路由
+> nextjs的路由，页面即路由，会根据pages目录下得文件夹及文件命名决定路由
+- index路由
+> home/index.ts ----> /home
+- 嵌套路由
+> about/privcy/contact.ts ----> /about/privcy/contact
+- 动态路由
+> user/[id].ts ----> /user/:id (/user/1234)
+> blog/[...all].ts ---> /blog/* (/blog/abc/123)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### alias
+> 在tsconfig.json中，配置baseUrl，如果要配置具体的alias，再配置paths
