@@ -5,7 +5,7 @@ import Footer from 'components/Footer';
 
 const Layout: NextPage = ({ children }) => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col justify-between">
       <Navbar />
       <main>{children}</main>
       <Footer />
