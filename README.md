@@ -8,8 +8,8 @@
 }
 ```
 
-- stylelint
-  > yarn add stylelint stylelint-config-standard-scss -D
+- stylelint(可以省略)
+> yarn add stylelint stylelint-config-standard-scss -D
 
 ```json
 {
@@ -61,3 +61,5 @@
 
 ### alias
 > 在tsconfig.json中，配置baseUrl，如果要配置具体的alias，再配置paths
+
+### tailwindcss
